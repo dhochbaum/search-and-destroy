@@ -1,7 +1,7 @@
 "use strict";
 
 // Complete this algo
-const minJumps = arr => {
+const minJumps2 = arr => {
   let jumps = 0;
   let indices = [arr.length - 1];
 
@@ -25,5 +25,25 @@ const oneJump = (arr, index) => {
   }
   return output;
 };
+
+
+
+
+const minJumps = arr => {
+  let jumpsToEnd = new Array(arr.length);
+  jumpsToEnd[arr.length-1] = 0;
+
+
+  for(let i=arr.length-2; i>=0; i--) {
+
+    //let possibleNextJumpAmounts = jumpsToEnd.slice(i+1, i+arr[i]+1);
+
+    //jumpsToEnd[i] = Math.min(...possibleNextJumpAmounts)+1;
+    jumpsToEnd[i] = Math.min(...jumpsToEnd.slice(i+1, i+arr[i]+1))+1;
+  }
+
+  return jumpsToEnd[0];
+}
+
 
 module.exports = minJumps;
