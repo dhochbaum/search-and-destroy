@@ -1,7 +1,8 @@
 'use strict';
 const {expect} = require('chai');
 const LinkedList = require('./linkedlist');
-const isLoop = require('./isloop');
+const {isLoop} = require('./isloop');
+const {findLoop} = require('./isloop');
 
 const numbers = [1,2,3,4,5,6,7,8,9,10];
 const letters = ['a','b','c','d','e','f','g','h','i'];
@@ -33,6 +34,19 @@ describe('isLoop function', () => {
 	});
 
 	it('returns false if linked list contains no loop', () =>{
+		expect(isLoop(test3)).to.equal(false);
+	});
+});
+
+describe('findLoop function', () => {
+	
+	// Feel free to write a few tests of your own! :)
+	it('returns the Node index if linked list contains a loop', () =>{
+		expect(findLoop(test1)).to.equal(3);
+		//expect(isLoop(test2)).to.equal(true);
+	});
+
+	xit('returns false if linked list contains no loop', () =>{
 		expect(isLoop(test3)).to.equal(false);
 	});
 });
