@@ -1,10 +1,36 @@
-'use strict';
+"use strict";
 
 //Complete this algo
-const isLoop = (linkedlist) => {
+const isLoop = linkedlist => {
+  let currentNode = linkedlist.head;
+  let history = [];
 
+  while (currentNode !== null) {
+    if (history.indexOf(currentNode.value) > -1) {
+      return true;
+    } else {
+      history.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+  }
+
+  return false;
 };
 
+function findLoop() {
+  let currentNode = linkedlist.head;
+  let history = [];
+
+  while (currentNode !== null) {
+    if (history.indexOf(currentNode.value) > -1) {
+      return currentNode.value;
+    } else {
+      history.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+  }
+  return false;
+}
 
 /*
 EXTRA CREDIT:
@@ -14,4 +40,4 @@ This function should return the Node value the loop begins at
 Remember to write some test specs too!
 
 */
-module.exports = isLoop
+module.exports = isLoop;
